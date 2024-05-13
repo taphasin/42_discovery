@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+  </head>
+  <body onload="checkForObjectives()">
+    <div class="ft_list">
+      <h1 class="title">To do list</h1>
+      <div class="form">
+        <input
+          type="text"
+          id="objective"
+          class="text"
+          placeholder="to do"
+          autocomplete="off"
+          maxlength="64"
+          onKeyPress="enter(event, this)"
+        />
+        <button class="add" onClick="addItem()">New</button>
+      </div>
+      <ul id="list"></ul>
+    </div>
+    <script src="test.js" defer></script>
+  </body>
+</html>

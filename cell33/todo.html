@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <div class="task">
+    <span>
+      <button onclick="setCookie()"></button>
+    </span>
+    <div class="todo">
+    </div>
+  </div> -->
+
+
+  <script>
+
+    // setCookie("work","work",365);
+    // setCookie("swim","swim",365);
+
+    console.log(getCookie("work"));
+
+    console.log(document.cookie);
+
+    deleteCookie("swim");
+    console.log(document.cookie);
+
+
+
+    function setCookie(cname, cvalue, exdays) {
+      const d = new Date();
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      let expires = "expires="+ d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/; SameSite=Strict";
+    }
+
+    function getCookie(name) {
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length + 1);
+        }
+      }
+      return "null";
+    }
+
+
+    function deleteCookie(name){
+      setCookie(name, null, 0);
+    }
+  </script>
+</body>
+</html>
