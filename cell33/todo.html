@@ -34,8 +34,8 @@
 
   <script>
 
-    console.log(document.cookie);
-    console.log(getCookie("work"));
+    // console.log(document.cookie);
+    // console.log(getCookie("work"));
 
     function clicked(){
       let name = prompt("Please enter your name:", "");
@@ -44,7 +44,7 @@
         return 
       }
       setCookie(name,"1",365);  
-      console.log(name)
+      console.log(name);
       appending(name);
     }
 
@@ -59,7 +59,7 @@
       var todo_div = document.createElement('div');
       todo_div.innerText = name;
       todo_div.setAttribute('onclick', 'delete_todo(this)');
-      todo_div.setAttribute('id',name)
+      todo_div.setAttribute('id',name);
       document.getElementById('ft_list').appendChild(todo_div);
     }
 
