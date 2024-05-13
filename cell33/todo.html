@@ -4,30 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .task{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  </style>
 </head>
 <body>
-  <!-- <div class="task">
+  <div class="task">
+    <p>todo list</p>
     <span>
-      <button onclick="setCookie()"></button>
+      <button onclick="clicked()">create todo</button>
+      <button onclick="console.log(document.cookie)">log cookie</button>
     </span>
-    <div class="todo">
+    <div class="todo_class" id="todo_id">
     </div>
-  </div> -->
+
+
+  </div>
 
 
   <script>
 
-    // setCookie("work","work",365);
-    // setCookie("swim","swim",365);
-
+    console.log(document.cookie);
     console.log(getCookie("work"));
 
-    console.log(document.cookie);
+    function clicked(){
+      let name = prompt("Please enter your name:", "");
+      setCookie(name,name,365);  
+      appending(name);
+    }
 
-    deleteCookie("swim");
-    console.log(document.cookie);
+    function delete_todo(element){
+      console.log(element.textContent);
+    }
 
-
+    function appending(name){
+      var todo_div = document.createElement('div');
+      todo_div.innerText = name;
+      todo_div.setAttribute('onclick', 'delete_todo(this)');
+      document.getElementById('todo_id').appendChild(todo_div);
+    }
 
     function setCookie(cname, cvalue, exdays) {
       const d = new Date();
