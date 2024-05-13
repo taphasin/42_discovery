@@ -1,0 +1,33 @@
+.sandwitch{
+   padding: 10px;
+}
+
+.sandwitch span
+{
+   display: block;
+   width: 40px;
+   height: 4px;
+   background: black;
+   margin-top: 7px;
+}
+
+
+
+
+#list
+{
+   display: none;
+}
+
+#list_menu
+{
+   display: none;
+   background: white;
+   padding: auto;
+}
+
+
+#list:checked + #list_menu
+{
+   display: block;
+}
