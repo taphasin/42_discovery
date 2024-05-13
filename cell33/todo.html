@@ -11,6 +11,13 @@
       align-items: center;
       flex-direction: column;
     }
+    .todo_class{
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    span{
+      margin: 10px;
+    }
   </style>
 </head>
 <body onload="check_cookie()">
@@ -20,10 +27,8 @@
       <button onclick="clicked()">create todo</button>
       <button onclick="console.log(document.cookie)">log cookie</button>
     </span>
-    <div class="todo_class" id="todo_id"">
+    <div class="todo_class" id="ft_list">
     </div>
-
-
   </div>
 
 
@@ -34,19 +39,28 @@
 
     function clicked(){
       let name = prompt("Please enter your name:", "");
-      setCookie(name,name,365);  
+      if (name == null || name == ''){
+        alert("invalid");
+        return 
+      }
+      setCookie(name,"1",365);  
+      console.log(name)
       appending(name);
     }
 
     function delete_todo(element){
-      console.log(element.textContent);
+      if (confirm("confirmation")){
+        deleteCookie(element.id);
+        element.parentElement.removeChild(element);
+      }
     }
 
     function appending(name){
       var todo_div = document.createElement('div');
       todo_div.innerText = name;
       todo_div.setAttribute('onclick', 'delete_todo(this)');
-      document.getElementById('todo_id').appendChild(todo_div);
+      todo_div.setAttribute('id',name)
+      document.getElementById('ft_list').appendChild(todo_div);
     }
 
     function setCookie(cname, cvalue, exdays) {
@@ -77,14 +91,16 @@
 
     function check_cookie(){
       let decodedCookie = decodeURIComponent(document.cookie);
-      let ca = decodedCookie.split(';');
+      let ca = decodedCookie.split(/[=;]/);
       console.log("onload_list",ca)
       for(let i = 0; i <ca.length; i++) {
         let c = ca[i];
         while (c.charAt(0) == ' ') {
           c = c.substring(1);
         }
-        appending(c.substring(name.length + 1));
+        if (c != '1'){
+          appending(c);
+        }
       }
     }
 
