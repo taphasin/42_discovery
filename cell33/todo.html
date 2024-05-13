@@ -13,14 +13,14 @@
     }
   </style>
 </head>
-<body>
+<body onload="check_cookie()">
   <div class="task">
     <p>todo list</p>
     <span>
       <button onclick="clicked()">create todo</button>
       <button onclick="console.log(document.cookie)">log cookie</button>
     </span>
-    <div class="todo_class" id="todo_id">
+    <div class="todo_class" id="todo_id"">
     </div>
 
 
@@ -71,10 +71,23 @@
       return "null";
     }
 
-
     function deleteCookie(name){
       setCookie(name, null, 0);
     }
+
+    function check_cookie(){
+      let decodedCookie = decodeURIComponent(document.cookie);
+      let ca = decodedCookie.split(';');
+      console.log("onload_list",ca)
+      for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        appending(c.substring(name.length + 1));
+      }
+    }
+
   </script>
 </body>
 </html>
