@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+        <body>
+            <input type="fint" id="fisint" name="name" requiredminlength="4" maxlength="8" size="10">
+            <select name="operation" id="operation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input type="sint" id="secint" name="name" requiredminlength="4" maxlength="8" size="10">
+            <button onclick="clicked()">try me!</button>
+            <script>
+                setInterval(displayHello, 30000);
+
+                function displayHello() {
+                    alert("Please, use me...")
+                }
+                function clicked(){
+                    console.log("ohqoq");
+                    let x = document.getElementById("fisint").value;
+                    let o = document.getElementById("operation").value;
+                    let y = document.getElementById("secint").value;
+
+                    if (isNaN(x)){
+                        console.log("Eror :(");
+                        alert("Error :(");
+                        return
+                    }
+                    else if(isNaN(y)){
+                        console.log("Eror :(")
+                        alert("Eror :(");
+                        return
+                    }
+
+                    x = parseInt(x)
+                    y = parseInt(y)
+
+                    if (x < 0){
+                        alert("Error :(");
+                        return
+                    }
+                    else if (y < 0){
+                        alert("Error :(");
+                        return
+                    }
+        
+                    if (o == '+'){
+                        alert(x+y);
+                        console.log(x+y);
+                    }
+                    else if (o == '-'){
+                        alert(x-y);
+                        console.log(x-y);
+                    }
+                    else if (o == '*'){
+                        alert(x*y);
+                        console.log(x*y);
+                    }
+                    else if (o == '/'){
+                        if (y == '0'){
+                            alert("It’s over 9000!")
+                            console.log("It’s over 9000!")
+                            return
+                        }
+                        alert(x/y);
+                        console.log(x/y);
+                    }
+                    else if (o == '%'){
+                        if (y == '0'){
+                            alert("It’s over 9000!")
+                            console.log("It’s over 9000!")
+                            return
+                        }
+                        alert(x%y);
+                        console.log(x%y);
+                    }
+                    else{
+                        alert("Error :(");
+                    }
+                }
+            </script>
+        </body>
+</html>
+
+        
