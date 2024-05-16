@@ -32,7 +32,7 @@
             });
             function grow_able(widther,heighter){
                 $('div').css('width',widther + 'px');
-                $('div').css('height',heighter + 'px')
+                $('div').css('height',heighter + 'px');
                 index_color += 1;
                 if (index_color >= 3){
                     index_color = 0
@@ -40,28 +40,28 @@
                 $('div').css({backgroundColor: coloring[index_color]})
             }
 
+            $('div').mouseleave(function(){
+                var width = parseInt($('div').css("width")) - 5;
+                var height = parseInt($('div').css("height")) - 5;
+                if (width < 200){
+                    return;
+                }
+                else{
+                    reduce_able(width,height);
+                }
+            });
+
+            function reduce_able(widther,heighter){
+                $('div').css('width',widther + 'px');
+                $('div').css('height',heighter + 'px');
+                if (index_color <= 0){
+                    index_color = 3
+                }
+                index_color -= 1;
+                $('div').css({backgroundColor: coloring[index_color]})
+            }
+
         });
-
-        function reduce(element){
-            var width = element.offsetWidth - 5;
-            var height = element.offsetHeight - 5;
-            if (width < 200){
-                width = 200;
-                height = 200;
-            }
-            reduce_able(element,width,height);
-        }
-
-        function reduce_able(element,width,height){
-            element.style.width = width + 'px';
-            element.style.height = height + 'px';
-
-            if (index_color <= 0){
-                index_color = 3
-            }
-            index_color -= 1;
-            element.style.backgroundColor = coloring[index_color];
-        }
     </script>
 </body>
 </html>
