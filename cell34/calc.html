@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cal</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+        <body>
+            <input type="fint" id="fisint" name="name" requiredminlength="4" maxlength="8" size="10">
+            <select name="operation" id="operation">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+            <input type="sint" id="secint" name="name" requiredminlength="4" maxlength="8" size="10">
+            <button>try me!</button>
+            <script>
+                setInterval(displayHello, 30000);
+
+                function displayHello() {
+                    alert("Please, use me...")
+                }
+
+                $(document).ready(function(){
+                    $('button').click(function(){
+                        var x = $('#fisint').val();
+                        var o = $('#operation').val();
+                        var y = $('#secint').val();
+
+                        if (isNaN(x)){
+                            console.log("Eror :(");
+                            alert("Error :( 1");
+                            return
+                        }
+                        else if(isNaN(y)){
+                            console.log("Eror :(")
+                            alert("Eror :( 2");
+                            return
+                        }
+
+                        var x_int = parseInt(x)
+                        var y_int = parseInt(y)
+
+                        if (x_int < 0){
+                            alert("Error :( 3");
+                            return
+                        }
+                        else if (y_int < 0){
+                            alert("Error :( 4");
+                            return
+                        }
+            
+                        if (o == '+'){
+                            alert(x_int + y_int);
+                            console.log(x_int + y_int);
+                        }
+                        else if (o == '-'){
+                            alert(x_int - y_int);
+                            console.log(x_int - y_int);
+                        }
+                        else if (o == '*'){
+                            alert(x_int * y_int);
+                            console.log(x_int * y_int);
+                        }
+                        else if (o == '/'){
+                            if (y_int == '0'){
+                                alert("It’s over 9000!")
+                                console.log("It’s over 9000!")
+                                return
+                            }
+                            alert(x_int / y_int);
+                            console.log(x_int / y_int);
+                        }
+                        else if (o == '%'){
+                            if (y_int == '0'){
+                                alert("It’s over 9000!")
+                                console.log("It’s over 9000!")
+                                return
+                            }
+                            alert(x_int % y_int);
+                            console.log(x_int % y_int);
+                        }
+                        else{
+                            alert("Error :( else");
+                        }
+
+                    });
+                });
+            </script>
+        </body>
+</html>
+
+        
