@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button onclick = "changecolor()">Click me!</button>
+    <script>
+        console.log("in");
+        $(document).ready(function(){
+            $('button').click(function(){
+                var colo = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+                $('body').css("background-color", colo);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+

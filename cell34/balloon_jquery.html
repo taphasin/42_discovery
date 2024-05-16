@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ballone</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .resizeable {
+            background-color: red;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="resizeable"></div>
+    <script>
+        let coloring = ['red','green','blue'];
+        let index_color = 0;
+
+        $(document).ready(function(){
+            $('div').click(function(){
+                var width = parseInt($('div').css("width")) + 10;
+                var height = parseInt($('div').css("height")) + 10;
+                if (width > 420){
+                    width = 200;
+                    height = 200;
+                }
+                grow_able(width,height);
+            });
+            function grow_able(widther,heighter){
+                $('div').css('width',widther + 'px');
+                $('div').css('height',heighter + 'px')
+                index_color += 1;
+                if (index_color >= 3){
+                    index_color = 0
+                }
+                $('div').css({backgroundColor: coloring[index_color]})
+            }
+
+        });
+
+        function reduce(element){
+            var width = element.offsetWidth - 5;
+            var height = element.offsetHeight - 5;
+            if (width < 200){
+                width = 200;
+                height = 200;
+            }
+            reduce_able(element,width,height);
+        }
+
+        function reduce_able(element,width,height){
+            element.style.width = width + 'px';
+            element.style.height = height + 'px';
+
+            if (index_color <= 0){
+                index_color = 3
+            }
+            index_color -= 1;
+            element.style.backgroundColor = coloring[index_color];
+        }
+    </script>
+</body>
+</html>
