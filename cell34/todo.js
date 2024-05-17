@@ -1,4 +1,3 @@
-   $(document).ready(function(){
 
       $('#New').click(function(){
         var name = prompt("Please enter your name:", "");
@@ -37,34 +36,13 @@
         setCookie(name, null, 0);
       }
 
+      $(window).on("load", function(){
+        var cookies = $.cookie();
+        $.each(cookies, function(name, value) {
+          if (value == '1') {
+            appending(name);
+          }
+        });
       });
   
-  // function getCookie(name) {
-  //   let decodedCookie = decodeURIComponent(document.cookie);
-  //   let ca = decodedCookie.split(';');
-  //   for(let i = 0; i <ca.length; i++) {
-  //     let c = ca[i];
-  //     while (c.charAt(0) == ' ') {
-  //       c = c.substring(1);
-  //     }
-  //     if (c.indexOf(name) == 0) {
-  //       return c.substring(name.length + 1);
-  //     }
-  //   }
-  //   return "null";
-  // }
-
-  // $('body').load(function(){
-  //   let decodedCookie = decodeURIComponent(document.cookie);
-  //   let ca = decodedCookie.split(/[=;]/);
-  //   console.log("onload_list",ca)
-  //   for(let i = 0; i <ca.length; i++) {
-  //     let c = ca[i];
-  //     while (c.charAt(0) == ' ') {
-  //       c = c.substring(1);
-  //     }
-  //     if (c != '1'){
-  //       appending(c);
-  //     }
-  //   }
-  // });
+  
