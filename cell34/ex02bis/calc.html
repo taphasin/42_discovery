@@ -29,14 +29,38 @@
                         var o = $('#operation').val();
                         var y = $('#secint').val();
 
-                        if (isNaN(x)){
+                        if (x.includes(".")){
                             console.log("Eror :(");
                             alert("Error :(");
                             return
                         }
+
+                        if (y.includes(".")){
+                            console.log("Eror :(");
+                            alert("Error :(");
+                            return
+                        }
+
+                        if (y.includes(" ") || x.includes(" ")){
+                            console.log("Eror :(");
+                            alert("Error :(");
+                            return
+                        }
+
+                        if (x % 1 != 0 || y % 1 != 0){
+                            console.log("Eror :(");
+                            alert("Error :(");
+                            return
+                        }
+
+                        if (isNaN(x)){
+                            console.log("Error :(");
+                            alert("Error :(");
+                            return
+                        }
                         else if(isNaN(y)){
-                            console.log("Eror :(")
-                            alert("Eror :(");
+                            console.log("Error :(")
+                            alert("Error :(");
                             return
                         }
 
@@ -73,14 +97,14 @@
                             alert(x_int / y_int);
                             console.log(x_int / y_int);
                         }
-                        else if (o == '%'){
+                   
+                            console.log(x_int % y_int);     else if (o == '%'){
                             if (y_int == '0'){
                                 alert("It’s over 9000!")
                                 console.log("It’s over 9000!")
                                 return
                             }
                             alert(x_int % y_int);
-                            console.log(x_int % y_int);
                         }
                         else{
                             alert("Error :(");
