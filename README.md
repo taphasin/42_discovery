@@ -10,4 +10,6 @@ Its teaching methods are based on **<u>peer learning: no teachers, no lectures, 
 - javascript <sub><sup>[cell 30-34]</sup></sub>
 	- jquery <sub><sup>[cell 34]</sup></sub>
 
+ My final **rush project** [42-discovery-rush](https://github.com/taphasin/42-discovery-rush4)
+
 ![](https://github.com/taphasin/42_discovery/blob/main/DP_13-18May_1.jpg)
